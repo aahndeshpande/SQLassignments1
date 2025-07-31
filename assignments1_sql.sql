@@ -1,6 +1,7 @@
 --q1
 SELECT ProductID, Name, Color,  ListPrice
 FROM Production.Product
+
 --q2
 SELECT ProductID, Name, Color,  ListPrice
 FROM Production.Product
@@ -10,6 +11,7 @@ WHERE ListPrice <> 0
 SELECT ProductID, Name, Color,  ListPrice
 FROM Production.Product
 WHERE Color IS NULL
+
 --q4
 SELECT ProductID, Name, Color,  ListPrice
 FROM Production.Product
@@ -27,12 +29,13 @@ WHERE Color IS NOT NULL
 
 --q7
 
+
 SELECT 
     'NAME: ' + p.Name + '  --  COLOR: ' + p.Color 
 FROM Production.Product AS p
-WHERE p.Name LIKE '[LMH]L Crankarm'
+WHERE lower(p.color) in ('black','silver') and 
+p.Name LIKE '%Crankarm'
    OR p.Name LIKE 'Chainring%'
-ORDER BY p.Name ASC
 
 --q8
 SELECT ProductID, Name
@@ -75,11 +78,3 @@ Order by Name
 Select Distinct Color
 From Production.Product
 ORDER BY Color DESC
-
-
-
-
-
-
-
-
